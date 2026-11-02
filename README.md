@@ -42,7 +42,6 @@ Paths containing spaces should be wrapped in quotes.
 
 Ryrite is an early project, with a few rough edges:
 
-- A file path is required; running without one currently panics.
 - Format recognition covers more files than symbol analysis does. Symbol listing is implemented for ELF, and files that the binary parser cannot read may cause a panic—even if their format was recognized earlier.
 - Each analysis pass reads the file in chunks of up to 8 MiB. Entropy is calculated per chunk, and format and symbol checks also run on each chunk, so larger files may produce incomplete results or parsing failures.
 - Printable bytes are joined together; this is a simple text peek, without string boundaries or offsets.

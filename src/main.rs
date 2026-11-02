@@ -5,6 +5,10 @@ use crate::file::read_file;
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
+    if args.len() <= 1 {
+        eprintln!("No arguments given");
+        std::process::exit(1);
+    }
     if let Err(e) = read_file(args[1].clone(), |chunk| {
         static_check::convert_to_string(chunk)
     }) {
